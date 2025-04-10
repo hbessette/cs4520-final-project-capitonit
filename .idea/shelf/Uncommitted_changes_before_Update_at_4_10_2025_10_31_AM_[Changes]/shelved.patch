@@ -1,0 +1,1949 @@
+Index: ../MobileApplicationDevelopment2025/app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/app/src/main/AndroidManifest.xml b/../MobileApplicationDevelopment2025/app/src/main/AndroidManifest.xml
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/app/src/main/AndroidManifest.xml	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,16 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+-    xmlns:tools="http://schemas.android.com/tools">
+-
+-    <application
+-        android:allowBackup="true"
+-        android:dataExtractionRules="@xml/data_extraction_rules"
+-        android:fullBackupContent="@xml/backup_rules"
+-        android:icon="@mipmap/ic_launcher"
+-        android:label="@string/app_name"
+-        android:roundIcon="@mipmap/ic_launcher_round"
+-        android:supportsRtl="true"
+-        android:theme="@style/Theme.MobileApplicationDevelopment2025"
+-        tools:targetApi="31" />
+-
+-</manifest>
+\ No newline at end of file
+Index: ../MobileApplicationDevelopment2025/.idea/codeStyles/codeStyleConfig.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/.idea/codeStyles/codeStyleConfig.xml b/../MobileApplicationDevelopment2025/.idea/codeStyles/codeStyleConfig.xml
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/.idea/codeStyles/codeStyleConfig.xml	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,5 +0,0 @@
+-<component name="ProjectCodeStyleConfiguration">
+-  <state>
+-    <option name="USE_PER_PROJECT_SETTINGS" value="true" />
+-  </state>
+-</component>
+\ No newline at end of file
+Index: ../MobileApplicationDevelopment2025/app/build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/app/build.gradle.kts b/../MobileApplicationDevelopment2025/app/build.gradle.kts
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/app/build.gradle.kts	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,175 +0,0 @@
+-/*
+-* Copyright (C) 2023 The Android Open Source Project
+-*
+-* Licensed under the Apache License, Version 2.0 (the "License");
+-* you may not use this file except in compliance with the License.
+-* You may obtain a copy of the License at
+-*
+-*     https://www.apache.org/licenses/LICENSE-2.0
+-*
+-* Unless required by applicable law or agreed to in writing, software
+-* distributed under the License is distributed on an "AS IS" BASIS,
+-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+-* See the License for the specific language governing permissions and
+-* limitations under the License.
+-*/
+-
+-@file:Suppress("UnstableApiUsage")
+-
+-plugins {
+-    id("com.android.application")
+-    id("org.jetbrains.kotlin.android")
+-    id("androidx.navigation.safeargs.kotlin")
+-    id("kotlin-kapt")
+-}
+-
+-android {
+-    namespace = "com.example.mobileapplicationdevelopment2025"
+-    compileSdk = 35
+-
+-    defaultConfig {
+-        applicationId = "com.example.mobileapplicationdevelopment2025"
+-        minSdk = 24
+-        targetSdk = 35
+-        versionCode = 1
+-        versionName = "1.0"
+-
+-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+-        vectorDrawables {
+-            useSupportLibrary = true
+-        }
+-    }
+-
+-    buildTypes {
+-        release {
+-            isMinifyEnabled = false
+-            proguardFiles(
+-                getDefaultProguardFile("proguard-android-optimize.txt"),
+-                "proguard-rules.pro"
+-            )
+-        }
+-
+-        debug {
+-
+-        }
+-    }
+-    compileOptions {
+-        sourceCompatibility = JavaVersion.VERSION_1_8
+-        targetCompatibility = JavaVersion.VERSION_1_8
+-    }
+-    kotlinOptions {
+-        jvmTarget = "1.8"
+-    }
+-    buildFeatures {
+-        compose = true
+-    }
+-    composeOptions {
+-        kotlinCompilerExtensionVersion = "1.5.14"
+-    }
+-    packaging {
+-        resources {
+-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+-        }
+-    }
+-    buildFeatures {
+-        viewBinding = true
+-    }
+-}
+-// Allow references to generated code
+-kapt {
+-    correctErrorTypes = true
+-}
+-
+-dependencies {
+-    implementation("androidx.fragment:fragment-ktx:1.8.5")
+-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
+-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
+-    implementation("androidx.navigation:navigation-compose:2.8.5")
+-    implementation("androidx.constraintlayout:constraintlayout:2.2.0")
+-    implementation("androidx.camera:camera-camera2:1.4.1")
+-    implementation("androidx.camera:camera-lifecycle:1.4.1")
+-    implementation("androidx.camera:camera-view:1.4.1")
+-    implementation("androidx.navigation:navigation-fragment-ktx:2.8.5")
+-    implementation("androidx.navigation:navigation-ui-ktx:2.8.5")
+-    implementation("androidx.work:work-runtime-ktx:2.10.0")
+-    implementation("com.github.bumptech.glide:compose:1.0.0-beta01")
+-    implementation("androidx.compose.material3:material3-android:1.3.1")
+-    debugImplementation("androidx.fragment:fragment-testing:1.8.5")
+-    debugImplementation("androidx.compose.ui:ui-test-manifest")
+-    androidTestImplementation("androidx.navigation:navigation-testing:2.8.5")
+-
+-    // jetpack compose
+-    val composeBom = platform("androidx.compose:compose-bom:2024.12.01")
+-    implementation(composeBom)
+-    androidTestImplementation(composeBom)
+-    implementation("androidx.compose.material:material:1.7.6")
+-    implementation("androidx.compose.foundation:foundation:1.7.6")
+-    implementation("androidx.compose.runtime:runtime-livedata:1.7.6")
+-    implementation("androidx.activity:activity-compose:1.9.3")
+-    implementation("androidx.compose.ui:ui")
+-    implementation("androidx.compose.ui:ui-tooling-preview")
+-    implementation("androidx.compose.runtime:runtime-livedata")
+-    implementation("androidx.compose.material:material-icons-core")
+-    implementation("androidx.compose.material:material-icons-extended")
+-    implementation("androidx.compose.material3:material3-window-size-class")
+-    implementation("androidx.activity:activity-compose:1.9.3")
+-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
+-    debugImplementation("androidx.compose.ui:ui-tooling")
+-    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+-
+-
+-    // Room
+-    val room_version = "2.6.1"
+-
+-    implementation("androidx.room:room-runtime:$room_version")
+-
+-    // If this project uses any Kotlin source, use Kotlin Symbol Processing (KSP)
+-    // See Add the KSP plugin to your project
+-    kapt("androidx.room:room-compiler:$room_version")
+-
+-    // If this project only uses Java source, use the Java annotationProcessor
+-    // No additional plugins are necessary
+-    annotationProcessor("androidx.room:room-compiler:$room_version")
+-
+-    // optional - Kotlin Extensions and Coroutines support for Room
+-    implementation("androidx.room:room-ktx:$room_version")
+-
+-    // optional - RxJava2 support for Room
+-    implementation("androidx.room:room-rxjava2:$room_version")
+-
+-    // optional - RxJava3 support for Room
+-    implementation("androidx.room:room-rxjava3:$room_version")
+-
+-    // optional - Guava support for Room, including Optional and ListenableFuture
+-    implementation("androidx.room:room-guava:$room_version")
+-
+-    // optional - Test helpers
+-    testImplementation("androidx.room:room-testing:$room_version")
+-
+-    // optional - Paging 3 Integration
+-    implementation("androidx.room:room-paging:$room_version")
+-
+-    // Dependencies for local unit tests
+-    testImplementation("junit:junit:4.13.2")
+-    testImplementation("org.hamcrest:hamcrest-all:1.3")
+-    testImplementation("androidx.arch.core:core-testing:2.2.0")
+-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+-
+-    // Dependencies for Android instrumented unit tests
+-    androidTestImplementation("junit:junit:4.13.2")
+-    androidTestImplementation("org.mockito:mockito-core:3.4.6")
+-    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+-
+-    //rxjava
+-    implementation("io.reactivex.rxjava3:rxandroid:3.0.2")
+-    // Because RxAndroid releases are few and far between, it is recommended you also
+-    // explicitly depend on RxJava's latest version for bug fixes and new features.
+-    // (see https://github.com/ReactiveX/RxJava/releases for latest 3.x.x version)
+-    implementation("io.reactivex.rxjava3:rxjava:3.1.5")
+-    implementation("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2")
+-    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+-
+-    // paging
+-    implementation("androidx.paging:paging-runtime-ktx:3.3.5")
+-    implementation("androidx.paging:paging-compose:3.3.5")
+-}
+Index: ../MobileApplicationDevelopment2025/gradle/wrapper/gradle-wrapper.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/gradle/wrapper/gradle-wrapper.properties b/../MobileApplicationDevelopment2025/gradle/wrapper/gradle-wrapper.properties
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/gradle/wrapper/gradle-wrapper.properties	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,6 +0,0 @@
+-#Sun Jan 05 21:40:18 EST 2025
+-distributionBase=GRADLE_USER_HOME
+-distributionPath=wrapper/dists
+-distributionUrl=https\://services.gradle.org/distributions/gradle-8.6-bin.zip
+-zipStoreBase=GRADLE_USER_HOME
+-zipStorePath=wrapper/dists
+Index: ../MobileApplicationDevelopment2025/.idea/codeStyles/Project.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/.idea/codeStyles/Project.xml b/../MobileApplicationDevelopment2025/.idea/codeStyles/Project.xml
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/.idea/codeStyles/Project.xml	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,123 +0,0 @@
+-<component name="ProjectCodeStyleConfiguration">
+-  <code_scheme name="Project" version="173">
+-    <JetCodeStyleSettings>
+-      <option name="CODE_STYLE_DEFAULTS" value="KOTLIN_OFFICIAL" />
+-    </JetCodeStyleSettings>
+-    <codeStyleSettings language="XML">
+-      <option name="FORCE_REARRANGE_MODE" value="1" />
+-      <indentOptions>
+-        <option name="CONTINUATION_INDENT_SIZE" value="4" />
+-      </indentOptions>
+-      <arrangement>
+-        <rules>
+-          <section>
+-            <rule>
+-              <match>
+-                <AND>
+-                  <NAME>xmlns:android</NAME>
+-                  <XML_ATTRIBUTE />
+-                  <XML_NAMESPACE>^$</XML_NAMESPACE>
+-                </AND>
+-              </match>
+-            </rule>
+-          </section>
+-          <section>
+-            <rule>
+-              <match>
+-                <AND>
+-                  <NAME>xmlns:.*</NAME>
+-                  <XML_ATTRIBUTE />
+-                  <XML_NAMESPACE>^$</XML_NAMESPACE>
+-                </AND>
+-              </match>
+-              <order>BY_NAME</order>
+-            </rule>
+-          </section>
+-          <section>
+-            <rule>
+-              <match>
+-                <AND>
+-                  <NAME>.*:id</NAME>
+-                  <XML_ATTRIBUTE />
+-                  <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+-                </AND>
+-              </match>
+-            </rule>
+-          </section>
+-          <section>
+-            <rule>
+-              <match>
+-                <AND>
+-                  <NAME>.*:name</NAME>
+-                  <XML_ATTRIBUTE />
+-                  <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+-                </AND>
+-              </match>
+-            </rule>
+-          </section>
+-          <section>
+-            <rule>
+-              <match>
+-                <AND>
+-                  <NAME>name</NAME>
+-                  <XML_ATTRIBUTE />
+-                  <XML_NAMESPACE>^$</XML_NAMESPACE>
+-                </AND>
+-              </match>
+-            </rule>
+-          </section>
+-          <section>
+-            <rule>
+-              <match>
+-                <AND>
+-                  <NAME>style</NAME>
+-                  <XML_ATTRIBUTE />
+-                  <XML_NAMESPACE>^$</XML_NAMESPACE>
+-                </AND>
+-              </match>
+-            </rule>
+-          </section>
+-          <section>
+-            <rule>
+-              <match>
+-                <AND>
+-                  <NAME>.*</NAME>
+-                  <XML_ATTRIBUTE />
+-                  <XML_NAMESPACE>^$</XML_NAMESPACE>
+-                </AND>
+-              </match>
+-              <order>BY_NAME</order>
+-            </rule>
+-          </section>
+-          <section>
+-            <rule>
+-              <match>
+-                <AND>
+-                  <NAME>.*</NAME>
+-                  <XML_ATTRIBUTE />
+-                  <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+-                </AND>
+-              </match>
+-              <order>ANDROID_ATTRIBUTE_ORDER</order>
+-            </rule>
+-          </section>
+-          <section>
+-            <rule>
+-              <match>
+-                <AND>
+-                  <NAME>.*</NAME>
+-                  <XML_ATTRIBUTE />
+-                  <XML_NAMESPACE>.*</XML_NAMESPACE>
+-                </AND>
+-              </match>
+-              <order>BY_NAME</order>
+-            </rule>
+-          </section>
+-        </rules>
+-      </arrangement>
+-    </codeStyleSettings>
+-    <codeStyleSettings language="kotlin">
+-      <option name="CODE_STYLE_DEFAULTS" value="KOTLIN_OFFICIAL" />
+-    </codeStyleSettings>
+-  </code_scheme>
+-</component>
+\ No newline at end of file
+Index: ../MobileApplicationDevelopment2025/app/src/main/res/xml/data_extraction_rules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/app/src/main/res/xml/data_extraction_rules.xml b/../MobileApplicationDevelopment2025/app/src/main/res/xml/data_extraction_rules.xml
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/app/src/main/res/xml/data_extraction_rules.xml	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,19 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?><!--
+-   Sample data extraction rules file; uncomment and customize as necessary.
+-   See https://developer.android.com/about/versions/12/backup-restore#xml-changes
+-   for details.
+--->
+-<data-extraction-rules>
+-    <cloud-backup>
+-        <!-- TODO: Use <include> and <exclude> to control what is backed up.
+-        <include .../>
+-        <exclude .../>
+-        -->
+-    </cloud-backup>
+-    <!--
+-    <device-transfer>
+-        <include .../>
+-        <exclude .../>
+-    </device-transfer>
+-    -->
+-</data-extraction-rules>
+\ No newline at end of file
+Index: ../MobileApplicationDevelopment2025/app/src/main/res/drawable/ic_launcher_foreground.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/app/src/main/res/drawable/ic_launcher_foreground.xml b/../MobileApplicationDevelopment2025/app/src/main/res/drawable/ic_launcher_foreground.xml
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/app/src/main/res/drawable/ic_launcher_foreground.xml	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,30 +0,0 @@
+-<vector xmlns:android="http://schemas.android.com/apk/res/android"
+-    xmlns:aapt="http://schemas.android.com/aapt"
+-    android:width="108dp"
+-    android:height="108dp"
+-    android:viewportWidth="108"
+-    android:viewportHeight="108">
+-    <path android:pathData="M31,63.928c0,0 6.4,-11 12.1,-13.1c7.2,-2.6 26,-1.4 26,-1.4l38.1,38.1L107,108.928l-32,-1L31,63.928z">
+-        <aapt:attr name="android:fillColor">
+-            <gradient
+-                android:endX="85.84757"
+-                android:endY="92.4963"
+-                android:startX="42.9492"
+-                android:startY="49.59793"
+-                android:type="linear">
+-                <item
+-                    android:color="#44000000"
+-                    android:offset="0.0" />
+-                <item
+-                    android:color="#00000000"
+-                    android:offset="1.0" />
+-            </gradient>
+-        </aapt:attr>
+-    </path>
+-    <path
+-        android:fillColor="#FFFFFF"
+-        android:fillType="nonZero"
+-        android:pathData="M65.3,45.828l3.8,-6.6c0.2,-0.4 0.1,-0.9 -0.3,-1.1c-0.4,-0.2 -0.9,-0.1 -1.1,0.3l-3.9,6.7c-6.3,-2.8 -13.4,-2.8 -19.7,0l-3.9,-6.7c-0.2,-0.4 -0.7,-0.5 -1.1,-0.3C38.8,38.328 38.7,38.828 38.9,39.228l3.8,6.6C36.2,49.428 31.7,56.028 31,63.928h46C76.3,56.028 71.8,49.428 65.3,45.828zM43.4,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2c-0.3,-0.7 -0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C45.3,56.528 44.5,57.328 43.4,57.328L43.4,57.328zM64.6,57.328c-0.8,0 -1.5,-0.5 -1.8,-1.2s-0.1,-1.5 0.4,-2.1c0.5,-0.5 1.4,-0.7 2.1,-0.4c0.7,0.3 1.2,1 1.2,1.8C66.5,56.528 65.6,57.328 64.6,57.328L64.6,57.328z"
+-        android:strokeWidth="1"
+-        android:strokeColor="#00000000" />
+-</vector>
+\ No newline at end of file
+Index: ../MobileApplicationDevelopment2025/.idea/migrations.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/.idea/migrations.xml b/../MobileApplicationDevelopment2025/.idea/migrations.xml
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/.idea/migrations.xml	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,10 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectMigrations">
+-    <option name="MigrateToGradleLocalJavaHome">
+-      <set>
+-        <option value="$PROJECT_DIR$" />
+-      </set>
+-    </option>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: ../MobileApplicationDevelopment2025/build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/build.gradle.kts b/../MobileApplicationDevelopment2025/build.gradle.kts
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/build.gradle.kts	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,34 +0,0 @@
+-
+-
+-/*
+- * Copyright (C) 2023 The Android Open Source Project
+- *
+- * Licensed under the Apache License, Version 2.0 (the "License");
+- * you may not use this file except in compliance with the License.
+- * You may obtain a copy of the License at
+- *
+- *     https://www.apache.org/licenses/LICENSE-2.0
+- *
+- * Unless required by applicable law or agreed to in writing, software
+- * distributed under the License is distributed on an "AS IS" BASIS,
+- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+- * See the License for the specific language governing permissions and
+- * limitations under the License.
+- */
+-
+-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+-plugins {
+-    id("com.android.application") version "8.1.4" apply false
+-    id("com.android.library") version "8.1.4" apply false
+-    id("org.jetbrains.kotlin.android") version "1.8.10" apply false
+-    id("com.google.devtools.ksp") version "1.8.10-1.0.9" apply false
+-}
+-buildscript {
+-    repositories {
+-        google()
+-    }
+-    dependencies {
+-        classpath ("com.android.tools.build:gradle:8.1.4")
+-        classpath ("androidx.navigation:navigation-safe-args-gradle-plugin:2.8.5")
+-    }
+-}
+\ No newline at end of file
+Index: ../MobileApplicationDevelopment2025/app/src/main/res/values/colors.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/app/src/main/res/values/colors.xml b/../MobileApplicationDevelopment2025/app/src/main/res/values/colors.xml
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/app/src/main/res/values/colors.xml	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,10 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<resources>
+-    <color name="purple_200">#FFBB86FC</color>
+-    <color name="purple_500">#FF6200EE</color>
+-    <color name="purple_700">#FF3700B3</color>
+-    <color name="teal_200">#FF03DAC5</color>
+-    <color name="teal_700">#FF018786</color>
+-    <color name="black">#FF000000</color>
+-    <color name="white">#FFFFFFFF</color>
+-</resources>
+\ No newline at end of file
+Index: ../MobileApplicationDevelopment2025/app/src/main/res/values-night/themes.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/app/src/main/res/values-night/themes.xml b/../MobileApplicationDevelopment2025/app/src/main/res/values-night/themes.xml
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/app/src/main/res/values-night/themes.xml	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,16 +0,0 @@
+-<resources xmlns:tools="http://schemas.android.com/tools">
+-    <!-- Base application theme. -->
+-    <style name="Theme.MobileApplicationDevelopment2025" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+-        <!-- Primary brand color. -->
+-        <item name="colorPrimary">@color/purple_200</item>
+-        <item name="colorPrimaryVariant">@color/purple_700</item>
+-        <item name="colorOnPrimary">@color/black</item>
+-        <!-- Secondary brand color. -->
+-        <item name="colorSecondary">@color/teal_200</item>
+-        <item name="colorSecondaryVariant">@color/teal_200</item>
+-        <item name="colorOnSecondary">@color/black</item>
+-        <!-- Status bar color. -->
+-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+-        <!-- Customize your theme here. -->
+-    </style>
+-</resources>
+\ No newline at end of file
+Index: ../MobileApplicationDevelopment2025/.idea/deploymentTargetSelector.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/.idea/deploymentTargetSelector.xml b/../MobileApplicationDevelopment2025/.idea/deploymentTargetSelector.xml
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/.idea/deploymentTargetSelector.xml	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,10 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="deploymentTargetSelector">
+-    <selectionStates>
+-      <SelectionState runConfigName="app">
+-        <option name="selectionMode" value="DROPDOWN" />
+-      </SelectionState>
+-    </selectionStates>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: ../MobileApplicationDevelopment2025/.idea/runConfigurations.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/.idea/runConfigurations.xml b/../MobileApplicationDevelopment2025/.idea/runConfigurations.xml
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/.idea/runConfigurations.xml	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,17 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="RunConfigurationProducerService">
+-    <option name="ignoredProducers">
+-      <set>
+-        <option value="com.intellij.execution.junit.AbstractAllInDirectoryConfigurationProducer" />
+-        <option value="com.intellij.execution.junit.AllInPackageConfigurationProducer" />
+-        <option value="com.intellij.execution.junit.PatternConfigurationProducer" />
+-        <option value="com.intellij.execution.junit.TestInClassConfigurationProducer" />
+-        <option value="com.intellij.execution.junit.UniqueIdConfigurationProducer" />
+-        <option value="com.intellij.execution.junit.testDiscovery.JUnitTestDiscoveryConfigurationProducer" />
+-        <option value="org.jetbrains.kotlin.idea.junit.KotlinJUnitRunConfigurationProducer" />
+-        <option value="org.jetbrains.kotlin.idea.junit.KotlinPatternConfigurationProducer" />
+-      </set>
+-    </option>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: ../MobileApplicationDevelopment2025/.idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/.idea/gradle.xml b/../MobileApplicationDevelopment2025/.idea/gradle.xml
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/.idea/gradle.xml	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,20 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="GradleMigrationSettings" migrationVersion="1" />
+-  <component name="GradleSettings">
+-    <option name="linkedExternalProjectsSettings">
+-      <GradleProjectSettings>
+-        <option name="testRunner" value="CHOOSE_PER_TEST" />
+-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+-        <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
+-        <option name="modules">
+-          <set>
+-            <option value="$PROJECT_DIR$" />
+-            <option value="$PROJECT_DIR$/app" />
+-          </set>
+-        </option>
+-        <option name="resolveExternalAnnotations" value="false" />
+-      </GradleProjectSettings>
+-    </option>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: ../MobileApplicationDevelopment2025/app/proguard-rules.pro
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/app/proguard-rules.pro b/../MobileApplicationDevelopment2025/app/proguard-rules.pro
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/app/proguard-rules.pro	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,21 +0,0 @@
+-# Add project specific ProGuard rules here.
+-# You can control the set of applied configuration files using the
+-# proguardFiles setting in build.gradle.
+-#
+-# For more details, see
+-#   http://developer.android.com/guide/developing/tools/proguard.html
+-
+-# If your project uses WebView with JS, uncomment the following
+-# and specify the fully qualified class name to the JavaScript interface
+-# class:
+-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+-#   public *;
+-#}
+-
+-# Uncomment this to preserve the line number information for
+-# debugging stack traces.
+-#-keepattributes SourceFile,LineNumberTable
+-
+-# If you keep the line number information, uncomment this to
+-# hide the original source file name.
+-#-renamesourcefileattribute SourceFile
+\ No newline at end of file
+Index: ../MobileApplicationDevelopment2025/app/src/main/res/drawable/ic_launcher_background.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/app/src/main/res/drawable/ic_launcher_background.xml b/../MobileApplicationDevelopment2025/app/src/main/res/drawable/ic_launcher_background.xml
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/app/src/main/res/drawable/ic_launcher_background.xml	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,170 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<vector xmlns:android="http://schemas.android.com/apk/res/android"
+-    android:width="108dp"
+-    android:height="108dp"
+-    android:viewportWidth="108"
+-    android:viewportHeight="108">
+-    <path
+-        android:fillColor="#3DDC84"
+-        android:pathData="M0,0h108v108h-108z" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M9,0L9,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M19,0L19,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M29,0L29,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M39,0L39,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M49,0L49,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M59,0L59,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M69,0L69,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M79,0L79,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M89,0L89,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M99,0L99,108"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,9L108,9"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,19L108,19"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,29L108,29"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,39L108,39"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,49L108,49"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,59L108,59"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,69L108,69"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,79L108,79"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,89L108,89"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M0,99L108,99"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M19,29L89,29"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M19,39L89,39"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M19,49L89,49"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M19,59L89,59"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M19,69L89,69"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M19,79L89,79"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M29,19L29,89"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M39,19L39,89"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M49,19L49,89"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M59,19L59,89"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M69,19L69,89"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-    <path
+-        android:fillColor="#00000000"
+-        android:pathData="M79,19L79,89"
+-        android:strokeWidth="0.8"
+-        android:strokeColor="#33FFFFFF" />
+-</vector>
+Index: ../MobileApplicationDevelopment2025/app/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/app/.gitignore b/../MobileApplicationDevelopment2025/app/.gitignore
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/app/.gitignore	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,1 +0,0 @@
+-/build
+\ No newline at end of file
+Index: ../MobileApplicationDevelopment2025/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml b/../MobileApplicationDevelopment2025/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+-    <background android:drawable="@drawable/ic_launcher_background" />
+-    <foreground android:drawable="@drawable/ic_launcher_foreground" />
+-    <monochrome android:drawable="@drawable/ic_launcher_foreground" />
+-</adaptive-icon>
+\ No newline at end of file
+Index: ../MobileApplicationDevelopment2025/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/.gitignore b/../MobileApplicationDevelopment2025/.gitignore
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/.gitignore	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,15 +0,0 @@
+-*.iml
+-.gradle
+-/local.properties
+-/.idea/caches
+-/.idea/libraries
+-/.idea/modules.xml
+-/.idea/workspace.xml
+-/.idea/navEditor.xml
+-/.idea/assetWizardSettings.xml
+-.DS_Store
+-/build
+-/captures
+-.externalNativeBuild
+-.cxx
+-local.properties
+Index: ../MobileApplicationDevelopment2025/.idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/.idea/compiler.xml b/../MobileApplicationDevelopment2025/.idea/compiler.xml
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/.idea/compiler.xml	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="CompilerConfiguration">
+-    <bytecodeTargetLevel target="21" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: ../MobileApplicationDevelopment2025/app/src/main/res/values/themes.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/app/src/main/res/values/themes.xml b/../MobileApplicationDevelopment2025/app/src/main/res/values/themes.xml
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/app/src/main/res/values/themes.xml	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,16 +0,0 @@
+-<resources xmlns:tools="http://schemas.android.com/tools">
+-    <!-- Base application theme. -->
+-    <style name="Theme.MobileApplicationDevelopment2025" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+-        <!-- Primary brand color. -->
+-        <item name="colorPrimary">@color/purple_500</item>
+-        <item name="colorPrimaryVariant">@color/purple_700</item>
+-        <item name="colorOnPrimary">@color/white</item>
+-        <!-- Secondary brand color. -->
+-        <item name="colorSecondary">@color/teal_200</item>
+-        <item name="colorSecondaryVariant">@color/teal_700</item>
+-        <item name="colorOnSecondary">@color/black</item>
+-        <!-- Status bar color. -->
+-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+-        <!-- Customize your theme here. -->
+-    </style>
+-</resources>
+\ No newline at end of file
+Index: ../MobileApplicationDevelopment2025/gradlew
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/gradlew b/../MobileApplicationDevelopment2025/gradlew
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/gradlew	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,185 +0,0 @@
+-#!/usr/bin/env sh
+-
+-#
+-# Copyright 2015 the original author or authors.
+-#
+-# Licensed under the Apache License, Version 2.0 (the "License");
+-# you may not use this file except in compliance with the License.
+-# You may obtain a copy of the License at
+-#
+-#      https://www.apache.org/licenses/LICENSE-2.0
+-#
+-# Unless required by applicable law or agreed to in writing, software
+-# distributed under the License is distributed on an "AS IS" BASIS,
+-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+-# See the License for the specific language governing permissions and
+-# limitations under the License.
+-#
+-
+-##############################################################################
+-##
+-##  Gradle start up script for UN*X
+-##
+-##############################################################################
+-
+-# Attempt to set APP_HOME
+-# Resolve links: $0 may be a link
+-PRG="$0"
+-# Need this for relative symlinks.
+-while [ -h "$PRG" ] ; do
+-    ls=`ls -ld "$PRG"`
+-    link=`expr "$ls" : '.*-> \(.*\)$'`
+-    if expr "$link" : '/.*' > /dev/null; then
+-        PRG="$link"
+-    else
+-        PRG=`dirname "$PRG"`"/$link"
+-    fi
+-done
+-SAVED="`pwd`"
+-cd "`dirname \"$PRG\"`/" >/dev/null
+-APP_HOME="`pwd -P`"
+-cd "$SAVED" >/dev/null
+-
+-APP_NAME="Gradle"
+-APP_BASE_NAME=`basename "$0"`
+-
+-# Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
+-DEFAULT_JVM_OPTS='"-Xmx64m" "-Xms64m"'
+-
+-# Use the maximum available, or set MAX_FD != -1 to use that value.
+-MAX_FD="maximum"
+-
+-warn () {
+-    echo "$*"
+-}
+-
+-die () {
+-    echo
+-    echo "$*"
+-    echo
+-    exit 1
+-}
+-
+-# OS specific support (must be 'true' or 'false').
+-cygwin=false
+-msys=false
+-darwin=false
+-nonstop=false
+-case "`uname`" in
+-  CYGWIN* )
+-    cygwin=true
+-    ;;
+-  Darwin* )
+-    darwin=true
+-    ;;
+-  MINGW* )
+-    msys=true
+-    ;;
+-  NONSTOP* )
+-    nonstop=true
+-    ;;
+-esac
+-
+-CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
+-
+-
+-# Determine the Java command to use to start the JVM.
+-if [ -n "$JAVA_HOME" ] ; then
+-    if [ -x "$JAVA_HOME/jre/sh/java" ] ; then
+-        # IBM's JDK on AIX uses strange locations for the executables
+-        JAVACMD="$JAVA_HOME/jre/sh/java"
+-    else
+-        JAVACMD="$JAVA_HOME/bin/java"
+-    fi
+-    if [ ! -x "$JAVACMD" ] ; then
+-        die "ERROR: JAVA_HOME is set to an invalid directory: $JAVA_HOME
+-
+-Please set the JAVA_HOME variable in your environment to match the
+-location of your Java installation."
+-    fi
+-else
+-    JAVACMD="java"
+-    which java >/dev/null 2>&1 || die "ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
+-
+-Please set the JAVA_HOME variable in your environment to match the
+-location of your Java installation."
+-fi
+-
+-# Increase the maximum file descriptors if we can.
+-if [ "$cygwin" = "false" -a "$darwin" = "false" -a "$nonstop" = "false" ] ; then
+-    MAX_FD_LIMIT=`ulimit -H -n`
+-    if [ $? -eq 0 ] ; then
+-        if [ "$MAX_FD" = "maximum" -o "$MAX_FD" = "max" ] ; then
+-            MAX_FD="$MAX_FD_LIMIT"
+-        fi
+-        ulimit -n $MAX_FD
+-        if [ $? -ne 0 ] ; then
+-            warn "Could not set maximum file descriptor limit: $MAX_FD"
+-        fi
+-    else
+-        warn "Could not query maximum file descriptor limit: $MAX_FD_LIMIT"
+-    fi
+-fi
+-
+-# For Darwin, add options to specify how the application appears in the dock
+-if $darwin; then
+-    GRADLE_OPTS="$GRADLE_OPTS \"-Xdock:name=$APP_NAME\" \"-Xdock:icon=$APP_HOME/media/gradle.icns\""
+-fi
+-
+-# For Cygwin or MSYS, switch paths to Windows format before running java
+-if [ "$cygwin" = "true" -o "$msys" = "true" ] ; then
+-    APP_HOME=`cygpath --path --mixed "$APP_HOME"`
+-    CLASSPATH=`cygpath --path --mixed "$CLASSPATH"`
+-
+-    JAVACMD=`cygpath --unix "$JAVACMD"`
+-
+-    # We build the pattern for arguments to be converted via cygpath
+-    ROOTDIRSRAW=`find -L / -maxdepth 1 -mindepth 1 -type d 2>/dev/null`
+-    SEP=""
+-    for dir in $ROOTDIRSRAW ; do
+-        ROOTDIRS="$ROOTDIRS$SEP$dir"
+-        SEP="|"
+-    done
+-    OURCYGPATTERN="(^($ROOTDIRS))"
+-    # Add a user-defined pattern to the cygpath arguments
+-    if [ "$GRADLE_CYGPATTERN" != "" ] ; then
+-        OURCYGPATTERN="$OURCYGPATTERN|($GRADLE_CYGPATTERN)"
+-    fi
+-    # Now convert the arguments - kludge to limit ourselves to /bin/sh
+-    i=0
+-    for arg in "$@" ; do
+-        CHECK=`echo "$arg"|egrep -c "$OURCYGPATTERN" -`
+-        CHECK2=`echo "$arg"|egrep -c "^-"`                                 ### Determine if an option
+-
+-        if [ $CHECK -ne 0 ] && [ $CHECK2 -eq 0 ] ; then                    ### Added a condition
+-            eval `echo args$i`=`cygpath --path --ignore --mixed "$arg"`
+-        else
+-            eval `echo args$i`="\"$arg\""
+-        fi
+-        i=`expr $i + 1`
+-    done
+-    case $i in
+-        0) set -- ;;
+-        1) set -- "$args0" ;;
+-        2) set -- "$args0" "$args1" ;;
+-        3) set -- "$args0" "$args1" "$args2" ;;
+-        4) set -- "$args0" "$args1" "$args2" "$args3" ;;
+-        5) set -- "$args0" "$args1" "$args2" "$args3" "$args4" ;;
+-        6) set -- "$args0" "$args1" "$args2" "$args3" "$args4" "$args5" ;;
+-        7) set -- "$args0" "$args1" "$args2" "$args3" "$args4" "$args5" "$args6" ;;
+-        8) set -- "$args0" "$args1" "$args2" "$args3" "$args4" "$args5" "$args6" "$args7" ;;
+-        9) set -- "$args0" "$args1" "$args2" "$args3" "$args4" "$args5" "$args6" "$args7" "$args8" ;;
+-    esac
+-fi
+-
+-# Escape application args
+-save () {
+-    for i do printf %s\\n "$i" | sed "s/'/'\\\\''/g;1s/^/'/;\$s/\$/' \\\\/" ; done
+-    echo " "
+-}
+-APP_ARGS=`save "$@"`
+-
+-# Collect all arguments for the java command, following the shell quoting and substitution rules
+-eval set -- $DEFAULT_JVM_OPTS $JAVA_OPTS $GRADLE_OPTS "\"-Dorg.gradle.appname=$APP_BASE_NAME\"" -classpath "\"$CLASSPATH\"" org.gradle.wrapper.GradleWrapperMain "$APP_ARGS"
+-
+-exec "$JAVACMD" "$@"
+Index: ../MobileApplicationDevelopment2025/gradle/libs.versions.toml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/gradle/libs.versions.toml b/../MobileApplicationDevelopment2025/gradle/libs.versions.toml
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/gradle/libs.versions.toml	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,22 +0,0 @@
+-[versions]
+-agp = "8.4.2"
+-kotlin = "1.9.0"
+-coreKtx = "1.10.1"
+-junit = "4.13.2"
+-junitVersion = "1.2.1"
+-espressoCore = "3.5.1"
+-appcompat = "1.7.0"
+-material = "1.12.0"
+-
+-[libraries]
+-androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+-junit = { group = "junit", name = "junit", version.ref = "junit" }
+-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+-androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+-
+-[plugins]
+-android-application = { id = "com.android.application", version.ref = "agp" }
+-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+-
+Index: ../MobileApplicationDevelopment2025/.idea/kotlinc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/.idea/kotlinc.xml b/../MobileApplicationDevelopment2025/.idea/kotlinc.xml
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/.idea/kotlinc.xml	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="KotlinJpsPluginSettings">
+-    <option name="version" value="1.9.24" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: ../MobileApplicationDevelopment2025/.idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/.idea/misc.xml b/../MobileApplicationDevelopment2025/.idea/misc.xml
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/.idea/misc.xml	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,9 +0,0 @@
+-<project version="4">
+-  <component name="ExternalStorageConfigurationManager" enabled="true" />
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="jbr-21" project-jdk-type="JavaSDK">
+-    <output url="file://$PROJECT_DIR$/build/classes" />
+-  </component>
+-  <component name="ProjectType">
+-    <option name="id" value="Android" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: ../MobileApplicationDevelopment2025/app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/app/src/main/res/values/strings.xml b/../MobileApplicationDevelopment2025/app/src/main/res/values/strings.xml
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/app/src/main/res/values/strings.xml	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,3 +0,0 @@
+-<resources>
+-    <string name="app_name">MobileApplicationDevelopment2025</string>
+-</resources>
+\ No newline at end of file
+Index: ../MobileApplicationDevelopment2025/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml b/../MobileApplicationDevelopment2025/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+-    <background android:drawable="@drawable/ic_launcher_background" />
+-    <foreground android:drawable="@drawable/ic_launcher_foreground" />
+-    <monochrome android:drawable="@drawable/ic_launcher_foreground" />
+-</adaptive-icon>
+\ No newline at end of file
+Index: ../MobileApplicationDevelopment2025/.idea/ktfmt.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/.idea/ktfmt.xml b/../MobileApplicationDevelopment2025/.idea/ktfmt.xml
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/.idea/ktfmt.xml	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="KtfmtSettings">
+-    <option name="enabled" value="false" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: ../MobileApplicationDevelopment2025/app/src/androidTest/java/com/example/mobileapplicationdevelopment2025/ExampleInstrumentedTest.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/app/src/androidTest/java/com/example/mobileapplicationdevelopment2025/ExampleInstrumentedTest.kt b/../MobileApplicationDevelopment2025/app/src/androidTest/java/com/example/mobileapplicationdevelopment2025/ExampleInstrumentedTest.kt
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/app/src/androidTest/java/com/example/mobileapplicationdevelopment2025/ExampleInstrumentedTest.kt	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,24 +0,0 @@
+-package com.example.mobileapplicationdevelopment2025
+-
+-import androidx.test.platform.app.InstrumentationRegistry
+-import androidx.test.ext.junit.runners.AndroidJUnit4
+-
+-import org.junit.Test
+-import org.junit.runner.RunWith
+-
+-import org.junit.Assert.*
+-
+-/**
+- * Instrumented test, which will execute on an Android device.
+- *
+- * See [testing documentation](http://d.android.com/tools/testing).
+- */
+-@RunWith(AndroidJUnit4::class)
+-class ExampleInstrumentedTest {
+-    @Test
+-    fun useAppContext() {
+-        // Context of the app under test.
+-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
+-        assertEquals("com.example.mobileapplicationdevelopment2025", appContext.packageName)
+-    }
+-}
+\ No newline at end of file
+Index: ../MobileApplicationDevelopment2025/.idea/appInsightsSettings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/.idea/appInsightsSettings.xml b/../MobileApplicationDevelopment2025/.idea/appInsightsSettings.xml
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/.idea/appInsightsSettings.xml	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,26 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="AppInsightsSettings">
+-    <option name="tabSettings">
+-      <map>
+-        <entry key="Firebase Crashlytics">
+-          <value>
+-            <InsightsFilterSettings>
+-              <option name="connection">
+-                <ConnectionSetting>
+-                  <option name="appId" value="PLACEHOLDER" />
+-                  <option name="mobileSdkAppId" value="" />
+-                  <option name="projectId" value="" />
+-                  <option name="projectNumber" value="" />
+-                </ConnectionSetting>
+-              </option>
+-              <option name="signal" value="SIGNAL_UNSPECIFIED" />
+-              <option name="timeIntervalDays" value="THIRTY_DAYS" />
+-              <option name="visibilityType" value="ALL" />
+-            </InsightsFilterSettings>
+-          </value>
+-        </entry>
+-      </map>
+-    </option>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: ../MobileApplicationDevelopment2025/app/src/main/res/xml/backup_rules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/app/src/main/res/xml/backup_rules.xml b/../MobileApplicationDevelopment2025/app/src/main/res/xml/backup_rules.xml
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/app/src/main/res/xml/backup_rules.xml	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,13 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?><!--
+-   Sample backup rules file; uncomment and customize as necessary.
+-   See https://developer.android.com/guide/topics/data/autobackup
+-   for details.
+-   Note: This file is ignored for devices older that API 31
+-   See https://developer.android.com/about/versions/12/backup-restore
+--->
+-<full-backup-content>
+-    <!--
+-   <include domain="sharedpref" path="."/>
+-   <exclude domain="sharedpref" path="device.xml"/>
+--->
+-</full-backup-content>
+\ No newline at end of file
+Index: ../MobileApplicationDevelopment2025/app/src/test/java/com/example/mobileapplicationdevelopment2025/ExampleUnitTest.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/app/src/test/java/com/example/mobileapplicationdevelopment2025/ExampleUnitTest.kt b/../MobileApplicationDevelopment2025/app/src/test/java/com/example/mobileapplicationdevelopment2025/ExampleUnitTest.kt
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/app/src/test/java/com/example/mobileapplicationdevelopment2025/ExampleUnitTest.kt	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,17 +0,0 @@
+-package com.example.mobileapplicationdevelopment2025
+-
+-import org.junit.Test
+-
+-import org.junit.Assert.*
+-
+-/**
+- * Example local unit test, which will execute on the development machine (host).
+- *
+- * See [testing documentation](http://d.android.com/tools/testing).
+- */
+-class ExampleUnitTest {
+-    @Test
+-    fun addition_isCorrect() {
+-        assertEquals(4, 2 + 2)
+-    }
+-}
+\ No newline at end of file
+Index: ../MobileApplicationDevelopment2025/gradlew.bat
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/gradlew.bat b/../MobileApplicationDevelopment2025/gradlew.bat
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/gradlew.bat	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,89 +0,0 @@
+-@rem
+-@rem Copyright 2015 the original author or authors.
+-@rem
+-@rem Licensed under the Apache License, Version 2.0 (the "License");
+-@rem you may not use this file except in compliance with the License.
+-@rem You may obtain a copy of the License at
+-@rem
+-@rem      https://www.apache.org/licenses/LICENSE-2.0
+-@rem
+-@rem Unless required by applicable law or agreed to in writing, software
+-@rem distributed under the License is distributed on an "AS IS" BASIS,
+-@rem WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+-@rem See the License for the specific language governing permissions and
+-@rem limitations under the License.
+-@rem
+-
+-@if "%DEBUG%" == "" @echo off
+-@rem ##########################################################################
+-@rem
+-@rem  Gradle startup script for Windows
+-@rem
+-@rem ##########################################################################
+-
+-@rem Set local scope for the variables with windows NT shell
+-if "%OS%"=="Windows_NT" setlocal
+-
+-set DIRNAME=%~dp0
+-if "%DIRNAME%" == "" set DIRNAME=.
+-set APP_BASE_NAME=%~n0
+-set APP_HOME=%DIRNAME%
+-
+-@rem Resolve any "." and ".." in APP_HOME to make it shorter.
+-for %%i in ("%APP_HOME%") do set APP_HOME=%%~fi
+-
+-@rem Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
+-set DEFAULT_JVM_OPTS="-Xmx64m" "-Xms64m"
+-
+-@rem Find java.exe
+-if defined JAVA_HOME goto findJavaFromJavaHome
+-
+-set JAVA_EXE=java.exe
+-%JAVA_EXE% -version >NUL 2>&1
+-if "%ERRORLEVEL%" == "0" goto execute
+-
+-echo.
+-echo ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
+-echo.
+-echo Please set the JAVA_HOME variable in your environment to match the
+-echo location of your Java installation.
+-
+-goto fail
+-
+-:findJavaFromJavaHome
+-set JAVA_HOME=%JAVA_HOME:"=%
+-set JAVA_EXE=%JAVA_HOME%/bin/java.exe
+-
+-if exist "%JAVA_EXE%" goto execute
+-
+-echo.
+-echo ERROR: JAVA_HOME is set to an invalid directory: %JAVA_HOME%
+-echo.
+-echo Please set the JAVA_HOME variable in your environment to match the
+-echo location of your Java installation.
+-
+-goto fail
+-
+-:execute
+-@rem Setup the command line
+-
+-set CLASSPATH=%APP_HOME%\gradle\wrapper\gradle-wrapper.jar
+-
+-
+-@rem Execute Gradle
+-"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %GRADLE_OPTS% "-Dorg.gradle.appname=%APP_BASE_NAME%" -classpath "%CLASSPATH%" org.gradle.wrapper.GradleWrapperMain %*
+-
+-:end
+-@rem End local scope for the variables with windows NT shell
+-if "%ERRORLEVEL%"=="0" goto mainEnd
+-
+-:fail
+-rem Set variable GRADLE_EXIT_CONSOLE if you need the _script_ return code instead of
+-rem the _cmd.exe /c_ return code!
+-if  not "" == "%GRADLE_EXIT_CONSOLE%" exit 1
+-exit /b 1
+-
+-:mainEnd
+-if "%OS%"=="Windows_NT" endlocal
+-
+-:omega
+Index: ../MobileApplicationDevelopment2025/settings.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/settings.gradle.kts b/../MobileApplicationDevelopment2025/settings.gradle.kts
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/settings.gradle.kts	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,23 +0,0 @@
+-pluginManagement {
+-    repositories {
+-        google {
+-            content {
+-                includeGroupByRegex("com\\.android.*")
+-                includeGroupByRegex("com\\.google.*")
+-                includeGroupByRegex("androidx.*")
+-            }
+-        }
+-        mavenCentral()
+-        gradlePluginPortal()
+-    }
+-}
+-dependencyResolutionManagement {
+-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+-    repositories {
+-        google()
+-        mavenCentral()
+-    }
+-}
+-
+-rootProject.name = "MobileApplicationDevelopment2025"
+-include(":app")
+Index: ../MobileApplicationDevelopment2025/gradle.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/../MobileApplicationDevelopment2025/gradle.properties b/../MobileApplicationDevelopment2025/gradle.properties
+deleted file mode 100644
+--- a/../MobileApplicationDevelopment2025/gradle.properties	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ /dev/null	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
+@@ -1,23 +0,0 @@
+-# Project-wide Gradle settings.
+-# IDE (e.g. Android Studio) users:
+-# Gradle settings configured through the IDE *will override*
+-# any settings specified in this file.
+-# For more details on how to configure your build environment visit
+-# http://www.gradle.org/docs/current/userguide/build_environment.html
+-# Specifies the JVM arguments used for the daemon process.
+-# The setting is particularly useful for tweaking memory settings.
+-org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8
+-# When configured, Gradle will run in incubating parallel mode.
+-# This option should only be used with decoupled projects. For more details, visit
+-# https://developer.android.com/r/tools/gradle-multi-project-decoupled-projects
+-# org.gradle.parallel=true
+-# AndroidX package structure to make it clearer which packages are bundled with the
+-# Android operating system, and which are packaged with your app's APK
+-# https://developer.android.com/topic/libraries/support-library/androidx-rn
+-android.useAndroidX=true
+-# Kotlin code style for this project: "official" or "obsolete":
+-kotlin.code.style=official
+-# Enables namespacing of each library's R class so that its R class includes only the
+-# resources declared in the library itself and none from the library's dependencies,
+-# thereby reducing the size of the R class for that library
+-android.nonTransitiveRClass=true
+\ No newline at end of file
+Index: ../product-list/app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\r\n    <string name=\"app_name\">Mobileapplicationdevelopment202430</string>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../product-list/app/src/main/res/values/strings.xml b/../product-list/app/src/main/res/values/strings.xml
+--- a/../product-list/app/src/main/res/values/strings.xml	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ b/../product-list/app/src/main/res/values/strings.xml	(date 1743636961813)
+@@ -1,3 +1,16 @@
+ <resources>
+     <string name="app_name">Mobileapplicationdevelopment202430</string>
++    <string name="login">login</string>
++    <string name="password">Password</string>
++    <string name="admin">admin</string>
++    <string name="username">Username</string>
++    <string name="productListTitle">My Food and Equipments</string>
++    <string name="login_title">Login</string>
++    <string-array name="sort_products_array">
++        <item>Sort By</item>
++        <item>A-Z</item>
++        <item>Z-A</item>
++        <item>Price: Low to High</item>
++        <item>Price: High to Low</item>
++    </string-array>
+ </resources>
+\ No newline at end of file
+Index: ../product-list/app/build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@file:Suppress(\"UnstableApiUsage\")\r\n\r\nplugins {\r\n  id(\"com.android.application\")\r\n  id(\"org.jetbrains.kotlin.android\")\r\n  id(\"androidx.navigation.safeargs.kotlin\")\r\n  id(\"kotlin-kapt\")\r\n}\r\n\r\nandroid {\r\n  namespace = \"com.neu.mobileapplicationdevelopment202430\"\r\n  compileSdk = 34\r\n\r\n  defaultConfig {\r\n    applicationId = \"com.neu.mobileapplicationdevelopment202430\"\r\n    minSdk = 24\r\n    targetSdk = 34\r\n    versionCode = 1\r\n    versionName = \"1.0\"\r\n\r\n    testInstrumentationRunner = \"androidx.test.runner.AndroidJUnitRunner\"\r\n  }\r\n\r\n  buildTypes {\r\n    release {\r\n      isMinifyEnabled = false\r\n      proguardFiles(getDefaultProguardFile(\"proguard-android-optimize.txt\"), \"proguard-rules.pro\")\r\n    }\r\n\r\n    debug {}\r\n  }\r\n  compileOptions {\r\n    sourceCompatibility = JavaVersion.VERSION_1_8\r\n    targetCompatibility = JavaVersion.VERSION_1_8\r\n  }\r\n  kotlinOptions { jvmTarget = \"1.8\" }\r\n  buildFeatures { compose = true }\r\n  composeOptions { kotlinCompilerExtensionVersion = \"1.5.2\" }\r\n  packaging { resources { excludes += \"/META-INF/{AL2.0,LGPL2.1}\" } }\r\n  buildToolsVersion = \"34.0.0\"\r\n  buildFeatures { viewBinding = true }\r\n}\r\n\r\ndependencies {\r\n  implementation(\"androidx.fragment:fragment-ktx:1.8.2\")\r\n  implementation(\"androidx.lifecycle:lifecycle-runtime-ktx:2.8.4\")\r\n  implementation(\"androidx.lifecycle:lifecycle-viewmodel-compose:2.8.4\")\r\n  implementation(\"androidx.navigation:navigation-compose:2.7.7\")\r\n  implementation(\"androidx.constraintlayout:constraintlayout:2.1.4\")\r\n  implementation(\"androidx.camera:camera-camera2:1.4.0-rc01\")\r\n  implementation(\"androidx.camera:camera-lifecycle:1.4.0-rc01\")\r\n  implementation(\"androidx.camera:camera-view:1.4.0-rc01\")\r\n  implementation(\"androidx.navigation:navigation-fragment-ktx:2.7.7\")\r\n  implementation(\"androidx.navigation:navigation-ui-ktx:2.7.7\")\r\n  implementation(\"androidx.work:work-runtime-ktx:2.9.1\")\r\n  implementation(\"com.github.bumptech.glide:compose:1.0.0-beta01\")\r\n  debugImplementation(\"androidx.fragment:fragment-testing:1.8.2\")\r\n  debugImplementation(\"androidx.compose.ui:ui-test-manifest\")\r\n  androidTestImplementation(\"androidx.navigation:navigation-testing:2.7.7\")\r\n\r\n  // jetpack\r\n  val composeBom = platform(\"androidx.compose:compose-bom:2024.02.00\")\r\n  implementation(composeBom)\r\n  androidTestImplementation(composeBom)\r\n\r\n  implementation(\"androidx.compose.material:material:1.6.8\")\r\n  implementation(\"androidx.compose.foundation:foundation:1.6.8\")\r\n  implementation(\"androidx.compose.runtime:runtime-livedata:1.6.8\")\r\n  implementation(\"androidx.activity:activity-compose:1.9.1\")\r\n\r\n  implementation(\"androidx.compose.ui:ui\")\r\n\r\n  implementation(\"androidx.compose.ui:ui-tooling-preview\")\r\n  debugImplementation(\"androidx.compose.ui:ui-tooling\")\r\n\r\n  androidTestImplementation(\"androidx.compose.ui:ui-test-junit4\")\r\n\r\n  implementation(\"androidx.compose.material:material-icons-core\")\r\n  implementation(\"androidx.compose.material:material-icons-extended\")\r\n  implementation(\"androidx.compose.material3:material3-window-size-class\")\r\n\r\n  implementation(\"androidx.activity:activity-compose:1.9.1\")\r\n  implementation(\"androidx.lifecycle:lifecycle-viewmodel-compose:2.8.4\")\r\n  implementation(\"androidx.compose.runtime:runtime-livedata\")\r\n\r\n  val room_version = \"2.6.1\"\r\n\r\n  implementation(\"androidx.room:room-runtime:$room_version\")\r\n  annotationProcessor(\"androidx.room:room-compiler:$room_version\")\r\n\r\n  implementation(\"org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4\")\r\n  implementation(\"org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3\")\r\n\r\n  implementation(\"com.squareup.retrofit2:retrofit:2.9.0\")\r\n  implementation(\"com.squareup.retrofit2:converter-gson:2.9.0\")\r\n\r\n  //noinspection GradleDependencyb\r\n  implementation(\"com.squareup.okhttp3:okhttp:4.9.1\")\r\n\r\n  // optional - Kotlin Extensions and Coroutines support for Room\r\n  implementation(\"androidx.room:room-ktx:$room_version\")\r\n\r\n  // optional - Test helpers\r\n  testImplementation(\"androidx.room:room-testing:$room_version\")\r\n\r\n  // optional - Paging 3 Integration\r\n  implementation(\"androidx.room:room-paging:$room_version\")\r\n\r\n  // Dependencies for local unit tests\r\n  testImplementation(\"junit:junit:4.13.2\")\r\n  testImplementation(\"org.hamcrest:hamcrest-all:1.3\")\r\n  testImplementation(\"androidx.arch.core:core-testing:2.2.0\")\r\n  testImplementation(\"org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3\")\r\n\r\n  // Dependencies for Android instrumented unit tests\r\n  androidTestImplementation(\"junit:junit:4.13.2\")\r\n  androidTestImplementation(\"org.mockito:mockito-core:3.4.6\")\r\n  androidTestImplementation(\"org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3\")\r\n\r\n  // rxjava\r\n  implementation(\"io.reactivex.rxjava3:rxandroid:3.0.2\")\r\n  implementation(\"io.reactivex.rxjava3:rxjava:3.1.5\")\r\n  implementation(\"com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2\")\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../product-list/app/build.gradle.kts b/../product-list/app/build.gradle.kts
+--- a/../product-list/app/build.gradle.kts	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ b/../product-list/app/build.gradle.kts	(date 1743546062448)
+@@ -1,3 +1,19 @@
++/*
++* Copyright (C) 2023 The Android Open Source Project
++*
++* Licensed under the Apache License, Version 2.0 (the "License");
++* you may not use this file except in compliance with the License.
++* You may obtain a copy of the License at
++*
++*     https://www.apache.org/licenses/LICENSE-2.0
++*
++* Unless required by applicable law or agreed to in writing, software
++* distributed under the License is distributed on an "AS IS" BASIS,
++* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++* See the License for the specific language governing permissions and
++* limitations under the License.
++*/
++
+ @file:Suppress("UnstableApiUsage")
+ 
+ plugins {
+@@ -9,97 +25,127 @@
+ 
+ android {
+   namespace = "com.neu.mobileapplicationdevelopment202430"
+-  compileSdk = 34
++  compileSdk = 35
+ 
+   defaultConfig {
+     applicationId = "com.neu.mobileapplicationdevelopment202430"
+     minSdk = 24
+-    targetSdk = 34
++    //noinspection EditedTargetSdkVersion
++    targetSdk = 35
+     versionCode = 1
+     versionName = "1.0"
+ 
+     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
++    vectorDrawables {
++      useSupportLibrary = true
++    }
+   }
+ 
+   buildTypes {
+     release {
+       isMinifyEnabled = false
+-      proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
++      proguardFiles(
++        getDefaultProguardFile("proguard-android-optimize.txt"),
++        "proguard-rules.pro"
++      )
+     }
+ 
+-    debug {}
++    debug {
++
++    }
+   }
+   compileOptions {
+     sourceCompatibility = JavaVersion.VERSION_1_8
+     targetCompatibility = JavaVersion.VERSION_1_8
+   }
+-  kotlinOptions { jvmTarget = "1.8" }
+-  buildFeatures { compose = true }
+-  composeOptions { kotlinCompilerExtensionVersion = "1.5.2" }
+-  packaging { resources { excludes += "/META-INF/{AL2.0,LGPL2.1}" } }
+-  buildToolsVersion = "34.0.0"
+-  buildFeatures { viewBinding = true }
++  kotlinOptions {
++    jvmTarget = "1.8"
++  }
++  buildFeatures {
++    compose = true
++  }
++  composeOptions {
++    kotlinCompilerExtensionVersion = "1.5.14"
++  }
++  packaging {
++    resources {
++      excludes += "/META-INF/{AL2.0,LGPL2.1}"
++    }
++  }
++  buildFeatures {
++    viewBinding = true
++  }
++}
++// Allow references to generated code
++kapt {
++  correctErrorTypes = true
+ }
+ 
+ dependencies {
+-  implementation("androidx.fragment:fragment-ktx:1.8.2")
+-  implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.4")
+-  implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.4")
+-  implementation("androidx.navigation:navigation-compose:2.7.7")
+-  implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+-  implementation("androidx.camera:camera-camera2:1.4.0-rc01")
+-  implementation("androidx.camera:camera-lifecycle:1.4.0-rc01")
+-  implementation("androidx.camera:camera-view:1.4.0-rc01")
+-  implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
+-  implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+-  implementation("androidx.work:work-runtime-ktx:2.9.1")
++  implementation("androidx.fragment:fragment-ktx:1.8.5")
++  implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
++  implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
++  implementation("androidx.navigation:navigation-compose:2.8.5")
++  implementation("androidx.constraintlayout:constraintlayout:2.2.0")
++  implementation("androidx.camera:camera-camera2:1.4.1")
++  implementation("androidx.camera:camera-lifecycle:1.4.1")
++  implementation("androidx.camera:camera-view:1.4.1")
++  implementation("androidx.navigation:navigation-fragment-ktx:2.8.5")
++  implementation("androidx.navigation:navigation-ui-ktx:2.8.5")
++  implementation("androidx.work:work-runtime-ktx:2.10.0")
+   implementation("com.github.bumptech.glide:compose:1.0.0-beta01")
+-  debugImplementation("androidx.fragment:fragment-testing:1.8.2")
++  implementation("androidx.compose.material3:material3-android:1.3.1")
++  debugImplementation("androidx.fragment:fragment-testing:1.8.5")
+   debugImplementation("androidx.compose.ui:ui-test-manifest")
+-  androidTestImplementation("androidx.navigation:navigation-testing:2.7.7")
++  androidTestImplementation("androidx.navigation:navigation-testing:2.8.5")
++  implementation("com.squareup.picasso:picasso:2.8")
++  implementation("com.github.bumptech.glide:compose:1.0.0-beta01")
+ 
+-  // jetpack
+-  val composeBom = platform("androidx.compose:compose-bom:2024.02.00")
++  // jetpack compose
++  val composeBom = platform("androidx.compose:compose-bom:2024.12.01")
+   implementation(composeBom)
+   androidTestImplementation(composeBom)
+-
+-  implementation("androidx.compose.material:material:1.6.8")
+-  implementation("androidx.compose.foundation:foundation:1.6.8")
+-  implementation("androidx.compose.runtime:runtime-livedata:1.6.8")
+-  implementation("androidx.activity:activity-compose:1.9.1")
+-
++  implementation("androidx.compose.material:material:1.7.6")
++  implementation("androidx.compose.foundation:foundation:1.7.6")
++  implementation("androidx.compose.runtime:runtime-livedata:1.7.6")
++  implementation("androidx.activity:activity-compose:1.9.3")
+   implementation("androidx.compose.ui:ui")
+-
+   implementation("androidx.compose.ui:ui-tooling-preview")
+-  debugImplementation("androidx.compose.ui:ui-tooling")
+-
+-  androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+-
++  implementation("androidx.compose.runtime:runtime-livedata")
+   implementation("androidx.compose.material:material-icons-core")
+   implementation("androidx.compose.material:material-icons-extended")
+   implementation("androidx.compose.material3:material3-window-size-class")
++  implementation("androidx.activity:activity-compose:1.9.3")
++  implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
++  debugImplementation("androidx.compose.ui:ui-tooling")
++  androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+ 
+-  implementation("androidx.activity:activity-compose:1.9.1")
+-  implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.4")
+-  implementation("androidx.compose.runtime:runtime-livedata")
+ 
++  // Room
+   val room_version = "2.6.1"
+ 
+   implementation("androidx.room:room-runtime:$room_version")
++
++  // If this project uses any Kotlin source, use Kotlin Symbol Processing (KSP)
++  // See Add the KSP plugin to your project
++  kapt("androidx.room:room-compiler:$room_version")
++
++  // If this project only uses Java source, use the Java annotationProcessor
++  // No additional plugins are necessary
+   annotationProcessor("androidx.room:room-compiler:$room_version")
+ 
+-  implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+-  implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+-
+-  implementation("com.squareup.retrofit2:retrofit:2.9.0")
+-  implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+-
+-  //noinspection GradleDependencyb
+-  implementation("com.squareup.okhttp3:okhttp:4.9.1")
+-
+   // optional - Kotlin Extensions and Coroutines support for Room
+   implementation("androidx.room:room-ktx:$room_version")
+ 
++  // optional - RxJava2 support for Room
++  implementation("androidx.room:room-rxjava2:$room_version")
++
++  // optional - RxJava3 support for Room
++  implementation("androidx.room:room-rxjava3:$room_version")
++
++  // optional - Guava support for Room, including Optional and ListenableFuture
++  implementation("androidx.room:room-guava:$room_version")
++
+   // optional - Test helpers
+   testImplementation("androidx.room:room-testing:$room_version")
+ 
+@@ -117,8 +163,17 @@
+   androidTestImplementation("org.mockito:mockito-core:3.4.6")
+   androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+ 
+-  // rxjava
++  //rxjava
+   implementation("io.reactivex.rxjava3:rxandroid:3.0.2")
++  // Because RxAndroid releases are few and far between, it is recommended you also
++  // explicitly depend on RxJava's latest version for bug fixes and new features.
++  // (see https://github.com/ReactiveX/RxJava/releases for latest 3.x.x version)
+   implementation("io.reactivex.rxjava3:rxjava:3.1.5")
+   implementation("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2")
++  implementation("com.squareup.retrofit2:converter-gson:2.11.0")
++
++  // paging
++  implementation("androidx.paging:paging-runtime-ktx:3.3.5")
++  implementation("androidx.paging:paging-compose:3.3.5")
+ }
++
+Index: ../product-list/build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\n\r\n/*\r\n * Copyright (C) 2023 The Android Open Source Project\r\n *\r\n * Licensed under the Apache License, Version 2.0 (the \"License\");\r\n * you may not use this file except in compliance with the License.\r\n * You may obtain a copy of the License at\r\n *\r\n *     https://www.apache.org/licenses/LICENSE-2.0\r\n *\r\n * Unless required by applicable law or agreed to in writing, software\r\n * distributed under the License is distributed on an \"AS IS\" BASIS,\r\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\r\n * See the License for the specific language governing permissions and\r\n * limitations under the License.\r\n */\r\n\r\n// Top-level build file where you can add configuration options common to all sub-projects/modules.\r\nplugins {\r\n    id(\"com.android.application\") version \"8.1.4\" apply false\r\n    id(\"com.android.library\") version \"8.1.4\" apply false\r\n    id(\"org.jetbrains.kotlin.android\") version \"1.8.10\" apply false\r\n    id(\"com.google.devtools.ksp\") version \"1.8.10-1.0.9\" apply false\r\n}\r\nbuildscript {\r\n    repositories {\r\n        google()\r\n    }\r\n    dependencies {\r\n        classpath (\"com.android.tools.build:gradle:8.1.4\")\r\n        classpath (\"androidx.navigation:navigation-safe-args-gradle-plugin:2.7.7\")\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../product-list/build.gradle.kts b/../product-list/build.gradle.kts
+--- a/../product-list/build.gradle.kts	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ b/../product-list/build.gradle.kts	(date 1741742137950)
+@@ -29,6 +29,7 @@
+     }
+     dependencies {
+         classpath ("com.android.tools.build:gradle:8.1.4")
+-        classpath ("androidx.navigation:navigation-safe-args-gradle-plugin:2.7.7")
++        classpath ("androidx.navigation:navigation-safe-args-gradle-plugin:2.8.5")
+     }
+-}
+\ No newline at end of file
++}
++
+Index: ../product-list/.idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GradleSettings\">\r\n    <option name=\"linkedExternalProjectsSettings\">\r\n      <GradleProjectSettings>\r\n        <option name=\"testRunner\" value=\"CHOOSE_PER_TEST\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"gradleJvm\" value=\"#GRADLE_LOCAL_JAVA_HOME\" />\r\n        <option name=\"modules\">\r\n          <set>\r\n            <option value=\"$PROJECT_DIR$\" />\r\n            <option value=\"$PROJECT_DIR$/app\" />\r\n          </set>\r\n        </option>\r\n        <option name=\"resolveExternalAnnotations\" value=\"false\" />\r\n      </GradleProjectSettings>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../product-list/.idea/gradle.xml b/../product-list/.idea/gradle.xml
+--- a/../product-list/.idea/gradle.xml	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ b/../product-list/.idea/gradle.xml	(date 1740606759642)
+@@ -1,5 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="GradleMigrationSettings" migrationVersion="1" />
+   <component name="GradleSettings">
+     <option name="linkedExternalProjectsSettings">
+       <GradleProjectSettings>
+Index: ../product-list/app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\">\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\r\n        android:fullBackupContent=\"@xml/backup_rules\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.Mobileapplicationdevelopment202430\"\r\n        tools:targetApi=\"31\" />\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../product-list/app/src/main/AndroidManifest.xml b/../product-list/app/src/main/AndroidManifest.xml
+--- a/../product-list/app/src/main/AndroidManifest.xml	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ b/../product-list/app/src/main/AndroidManifest.xml	(date 1743635574016)
+@@ -1,8 +1,9 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:tools="http://schemas.android.com/tools">
+-
++    <uses-permission android:name="android.permission.INTERNET" />
+     <application
++        android:name=".ProductApplication"
+         android:allowBackup="true"
+         android:dataExtractionRules="@xml/data_extraction_rules"
+         android:fullBackupContent="@xml/backup_rules"
+@@ -11,6 +12,27 @@
+         android:roundIcon="@mipmap/ic_launcher_round"
+         android:supportsRtl="true"
+         android:theme="@style/Theme.Mobileapplicationdevelopment202430"
+-        tools:targetApi="31" />
++        tools:targetApi="35" >
++        <activity android:name=".MainActivity"
++            android:exported="true">
++            <intent-filter>
++                <action android:name="android.intent.action.MAIN" />
++
++                <category android:name="android.intent.category.LAUNCHER" />
++            </intent-filter>
++
++        </activity>
++        <provider
++            android:name="androidx.startup.InitializationProvider"
++            android:authorities="${applicationId}.androidx-startup"
++            android:exported="false"
++            tools:node="merge">
++            <meta-data
++                android:name="androidx.work.WorkManagerInitializer"
++                android:value="androidx.startup"
++                tools:node="remove" />
++        </provider>
++    </application>
++
+ 
+ </manifest>
+\ No newline at end of file
+Index: ../product-list/.idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"VcsDirectoryMappings\">\r\n    <mapping directory=\"$PROJECT_DIR$/../..\" vcs=\"Git\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../product-list/.idea/vcs.xml b/../product-list/.idea/vcs.xml
+--- a/../product-list/.idea/vcs.xml	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ b/../product-list/.idea/vcs.xml	(date 1740516495792)
+@@ -2,5 +2,6 @@
+ <project version="4">
+   <component name="VcsDirectoryMappings">
+     <mapping directory="$PROJECT_DIR$/../.." vcs="Git" />
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: ../product-list/.idea/kotlinc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"KotlinJpsPluginSettings\">\r\n    <option name=\"version\" value=\"1.9.0\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../product-list/.idea/kotlinc.xml b/../product-list/.idea/kotlinc.xml
+--- a/../product-list/.idea/kotlinc.xml	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ b/../product-list/.idea/kotlinc.xml	(date 1741742269057)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="KotlinJpsPluginSettings">
+-    <option name="version" value="1.9.0" />
++    <option name="version" value="1.9.24" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: ../unit-converter/.idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_21\" default=\"true\" project-jdk-name=\"jbr-21\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../unit-converter/.idea/misc.xml b/../unit-converter/.idea/misc.xml
+--- a/../unit-converter/.idea/misc.xml	(revision 021173e002d5d90ba9889df8183ecdf6b5068714)
++++ b/../unit-converter/.idea/misc.xml	(date 1741741304187)
+@@ -1,4 +1,3 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+   <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="jbr-21" project-jdk-type="JavaSDK">
