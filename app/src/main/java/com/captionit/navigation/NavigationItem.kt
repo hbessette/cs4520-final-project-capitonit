@@ -1,4 +1,4 @@
-package captionit.navigation
+package com.captionit.navigation
 
 sealed class NavigationItem(val route: String) {
     object Login: NavigationItem(Screen.LOGIN.name)

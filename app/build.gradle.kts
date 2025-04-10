@@ -24,11 +24,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.mobileapplicationdevelopment2025"
+    namespace = "com.captionit"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.mobileapplicationdevelopment2025"
+        applicationId = "com.captionit"
         minSdk = 24
         targetSdk = 35
         versionCode = 1

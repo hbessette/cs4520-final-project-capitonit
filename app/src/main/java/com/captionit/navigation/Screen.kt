@@ -1,4 +1,4 @@
-package captionit.navigation
+package com.captionit.navigation
 
 enum class Screen {
     LOGIN,

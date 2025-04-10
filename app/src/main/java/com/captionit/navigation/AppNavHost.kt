@@ -1,4 +1,4 @@
-package captionit.navigation
+package com.captionit.navigation
 
 import android.content.Context
 import androidx.compose.runtime.Composable
@@ -6,13 +6,13 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import captionit.screen.favorites.view.FavoritesScreen
-import captionit.screen.home.view.HomeScreen
-import captionit.screen.login.view.LoginScreen
-import captionit.screen.post.view.PostScreen
-import captionit.screen.profile.view.ProfileScreen
-import captionit.screen.search.view.SearchScreen
-import captionit.screen.settings.view.SettingsScreen
+import com.captionit.screen.favorites.view.FavoritesScreen
+import com.captionit.screen.home.view.HomeScreen
+import com.captionit.screen.login.view.LoginScreen
+import com.captionit.screen.post.view.PostScreen
+import com.captionit.screen.profile.view.ProfileScreen
+import com.captionit.screen.search.view.SearchScreen
+import com.captionit.screen.settings.view.SettingsScreen
 
 @Composable
 fun AppNavHost(

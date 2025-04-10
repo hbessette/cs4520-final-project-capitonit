@@ -1,9 +1,9 @@
-package captionit.screen.login.view
+package com.captionit.screen.home.view
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 
 @Composable
-fun LoginScreen(navHostController: NavHostController) {
+fun HomeScreen(navHostController: NavHostController) {
 
 }

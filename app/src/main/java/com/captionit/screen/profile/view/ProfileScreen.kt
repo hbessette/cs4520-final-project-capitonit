@@ -1,4 +1,4 @@
-package captionit.screen.profile.view
+package com.captionit.screen.profile.view
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController

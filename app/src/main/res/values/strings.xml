@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">MobileApplicationDevelopment2025</string>
+    <string name="app_name">CaptionIt</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
 </resources>

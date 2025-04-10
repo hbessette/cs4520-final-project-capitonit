@@ -1,9 +1,9 @@
-package captionit.screen.search.view
+package com.captionit.screen.settings.view
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 
 @Composable
-fun SearchScreen(navHostController: NavHostController) {
+fun SettingsScreen(navHostController: NavHostController) {
 
 }

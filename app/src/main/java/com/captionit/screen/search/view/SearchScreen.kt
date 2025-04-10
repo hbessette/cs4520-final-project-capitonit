@@ -1,9 +1,9 @@
-package captionit.screen.favorites.view
+package com.captionit.screen.search.view
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 
 @Composable
-fun FavoritesScreen(navHostController: NavHostController) {
+fun SearchScreen(navHostController: NavHostController) {
 
 }
